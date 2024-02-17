@@ -42,13 +42,26 @@ function App() {
       corSecundaria: '#FFEEDF'
     }
   ]
+  const [colaboradores, setColaboradores] = useState(() => {
+    // Tente obter os dados armazenados localmente
+    const dadosArmazenados = localStorage.getItem('colaboradores');
+    // Se existirem, converta-os de volta para um array
+    return dadosArmazenados ? JSON.parse(dadosArmazenados) : [];
+  });
+  
 
-  const [colaboradores, setColaboradores] = useState([])
+  //const [colaboradores, setColaboradores] = useState([])
 
-  const aoNovoColaboradorAdicionado = (colaborador) => {
-    debugger
-    setColaboradores([...colaboradores, colaborador])
-  }
+  //const aoNovoColaboradorAdicionado = (colaborador) => {
+    const aoNovoColaboradorAdicionado = (colaborador) => {
+      const novaListaColaboradores = [...colaboradores, colaborador];
+      setColaboradores(novaListaColaboradores);
+      // Salvar no armazenamento local
+      localStorage.setItem('colaboradores', JSON.stringify(novaListaColaboradores));
+    };
+    
+  
+  
 
   return (
     <div className="App">
@@ -84,6 +97,6 @@ function App() {
     </div>
 
   );
-}
+          }
 
 export default App;
