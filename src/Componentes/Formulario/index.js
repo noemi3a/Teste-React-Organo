@@ -31,18 +31,12 @@ const Formulario = (props) => {
                 <h2>Preencha os dados para criar o card do colaborador</h2>
                 <CampoTexto 
                     obrigatorio={true}
-                    label="Nome"
-                    placeholder="Digite seu nome" 
+                    label="Curso"
+                    placeholder="Digite o curso" 
                     valor={nome}
                     aoAlterado={valor => setNome(valor)}
                 />
-                <CampoTexto
-                    obrigatorio={true}
-                    label="Cargo"
-                    placeholder="Digite seu cargo" 
-                    valor={cargo}
-                    aoAlterado={valor => setCargo(valor)}
-                />
+              
                 <CampoTexto
                     label="Imagem"
                     placeholder="Digite o endereço da imagem" 
@@ -51,7 +45,7 @@ const Formulario = (props) => {
                 />
                 <ListaSuspensa
                     obrigatorio={true}
-                    label="Time" 
+                    label="Plano"
                     itens={props.times}
                     valor={time}
                     aoAlterado={valor => setTime(valor)}
